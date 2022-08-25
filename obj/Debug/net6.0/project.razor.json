@@ -16331,6 +16331,11 @@
       "FilePath": "c:\\Users\\trinh\\OneDrive\\Documents\\NetCore\\Net2Minh\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\trinh\\OneDrive\\Documents\\NetCore\\Net2Minh\\Views\\Demo\\Index.cshtml",
+      "TargetPath": "Views\\Demo\\Index.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"
