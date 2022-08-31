@@ -13,19 +13,35 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+  public IActionResult Index(string a, string b)
+  {
+    if (a != null && b != null)
     {
-        return View();
+      if (int.Parse(a) != 0)
+      {
+        ViewBag.results = (-int.Parse(b) / int.Parse(a));
+      }
+      else if (int.Parse(a) == 0)
+      {
+        ViewBag.results = "PT vô nghiệm";
+      }
+      else
+      {
+        ViewBag.results = "PT vô số nghiệm";
+      }
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+    return View();
+  }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+  public IActionResult Privacy()
+  {
+    return View();
+  }
+
+  [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+  public IActionResult Error()
+  {
+    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+  }
 }
