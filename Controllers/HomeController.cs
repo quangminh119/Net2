@@ -6,6 +6,7 @@ namespace Net2Minh.Controllers;
 
 public class HomeController : Controller
 {
+   GiaiPhuongTrinh gpt = new GiaiPhuongTrinh();
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
@@ -13,35 +14,37 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-  public IActionResult Index(string a, string b)
+  public IActionResult Index()
   {
-    if (a != null && b != null)
-    {
-      if (int.Parse(a) != 0)
-      {
-        ViewBag.results = (-int.Parse(b) / int.Parse(a));
-      }
-      else if (int.Parse(a) == 0)
-      {
-        ViewBag.results = "PT vô nghiệm";
-      }
-      else
-      {
-        ViewBag.results = "PT vô số nghiệm";
-      }
-    }
+   
 
     return View();
   }
 
-  public IActionResult Privacy()
+  public IActionResult Create()
   {
     return View();
   }
-
-  [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-  public IActionResult Error()
+  [HttpPost]
+  public IActionResult Create(string Fullname)
   {
-    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    String Message = "Hello" + Fullname;
+    //sử dụng ViewBag để gửi dữ liệu từ controller 
+    ViewBag.ThongBao = Message;
+    return View();
   }
-}
+  public IActionResult GiaiPhuongTrinh()
+        {
+           
+            return View();
+
+        }
+        [HttpPost]
+        public IActionResult GiaiPhuongTrinhBacNhat(string heSoa, string heSob, string heSoc)
+        {
+          string thongBaoBacNhat
+          return View();
+
+
+        }
+}  
